@@ -389,3 +389,272 @@ box-shadow:
 0 0 50px #3fd9ff;
 
 }
+/* ===========================
+   Toast
+=========================== */
+
+#toast{
+    position:fixed;
+    bottom:30px;
+    right:30px;
+    padding:16px 24px;
+    border-radius:14px;
+    background:rgba(0,170,255,.95);
+    color:#fff;
+    font-weight:600;
+    backdrop-filter:blur(10px);
+    box-shadow:0 0 30px rgba(0,180,255,.6);
+    transform:translateY(120px);
+    opacity:0;
+    transition:.35s;
+    z-index:999;
+}
+
+#toast.show{
+    transform:translateY(0);
+    opacity:1;
+}
+
+/* ===========================
+   Stars
+=========================== */
+
+.star{
+    position:absolute;
+    width:2px;
+    height:2px;
+    background:white;
+    border-radius:50%;
+    animation:twinkle 2s infinite;
+}
+
+@keyframes twinkle{
+
+0%,100%{
+opacity:.2;
+transform:scale(1);
+}
+
+50%{
+opacity:1;
+transform:scale(2);
+}
+
+}
+
+/* ===========================
+   Shooting Star
+=========================== */
+
+.shooting{
+    position:fixed;
+    width:160px;
+    height:2px;
+    background:linear-gradient(
+        90deg,
+        white,
+        cyan,
+        transparent
+    );
+    transform:rotate(-35deg);
+    animation:shoot 1.8s linear forwards;
+    pointer-events:none;
+}
+
+@keyframes shoot{
+
+0%{
+transform:translate(0,0) rotate(-35deg);
+opacity:1;
+}
+
+100%{
+transform:translate(-700px,500px) rotate(-35deg);
+opacity:0;
+}
+
+}
+
+/* ===========================
+   Crystal
+=========================== */
+
+.crystal{
+
+position:absolute;
+
+bottom:-80px;
+
+width:18px;
+
+height:18px;
+
+background:linear-gradient(
+45deg,
+#9cecff,
+#00bfff
+);
+
+transform:rotate(45deg);
+
+filter:blur(.2px);
+
+box-shadow:0 0 20px cyan;
+
+animation:crystalFloat linear infinite;
+
+}
+
+@keyframes crystalFloat{
+
+0%{
+
+transform:
+translateY(0)
+rotate(45deg);
+
+}
+
+100%{
+
+transform:
+translateY(-120vh)
+rotate(405deg);
+
+}
+
+}
+
+/* ===========================
+   Ripple
+=========================== */
+
+button{
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.ripple{
+
+position:absolute;
+
+width:20px;
+
+height:20px;
+
+background:rgba(255,255,255,.4);
+
+border-radius:50%;
+
+transform:translate(-50%,-50%);
+
+animation:ripple .7s linear;
+
+}
+
+@keyframes ripple{
+
+from{
+
+width:0;
+height:0;
+opacity:1;
+
+}
+
+to{
+
+width:350px;
+height:350px;
+opacity:0;
+
+}
+
+}
+
+/* ===========================
+   Scroll
+=========================== */
+
+.glass{
+
+opacity:0;
+
+transform:translateY(30px);
+
+}
+
+.glass.show{
+
+opacity:1;
+
+transform:translateY(0);
+
+transition:.7s;
+
+}
+
+/* ===========================
+   Footer
+=========================== */
+
+footer{
+
+margin-top:70px;
+
+padding:30px;
+
+text-align:center;
+
+color:#cdeeff;
+
+font-size:18px;
+
+}
+
+/* ===========================
+   Mobile
+=========================== */
+
+@media(max-width:900px){
+
+.main-card{
+
+flex-direction:column;
+
+}
+
+.right{
+
+width:100%;
+
+}
+
+.character{
+
+max-width:340px;
+
+}
+
+header h1{
+
+font-size:34px;
+
+}
+
+.glass h1{
+
+font-size:26px;
+
+}
+
+button{
+
+font-size:16px;
+
+}
+
+}
