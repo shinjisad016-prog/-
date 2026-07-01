@@ -292,3 +292,146 @@ footer.innerHTML +=
 "<br>© "+new Date().getFullYear()+" Hiroshi Payment";
 
 }
+// ============================
+// Cursor Glow
+// ============================
+
+const cursor = document.createElement("div");
+cursor.id = "cursorGlow";
+
+document.body.appendChild(cursor);
+
+document.addEventListener("mousemove",(e)=>{
+
+    cursor.style.left = e.clientX + "px";
+    cursor.style.top = e.clientY + "px";
+
+});
+
+// ============================
+// Button Spark
+// ============================
+
+document.querySelectorAll("button").forEach(button=>{
+
+    button.addEventListener("click",(e)=>{
+
+        for(let i=0;i<10;i++){
+
+            const spark=document.createElement("span");
+
+            spark.className="spark";
+
+            spark.style.left=e.offsetX+"px";
+            spark.style.top=e.offsetY+"px";
+
+            spark.style.setProperty(
+                "--x",
+                (Math.random()*120-60)+"px"
+            );
+
+            spark.style.setProperty(
+                "--y",
+                (Math.random()*120-60)+"px"
+            );
+
+            button.appendChild(spark);
+
+            setTimeout(()=>{
+                spark.remove();
+            },800);
+
+        }
+
+    });
+
+});
+
+// ============================
+// Keyboard Shortcut
+// Ctrl + C = Copy Bank
+// ============================
+
+document.addEventListener("keydown",(e)=>{
+
+    if(e.ctrlKey && e.key==="b"){
+
+        copyBank();
+
+    }
+
+});
+
+// ============================
+// Card Entrance
+// ============================
+
+window.addEventListener("load",()=>{
+
+    document.querySelector(".main-card")
+        .animate([
+
+            {
+                opacity:0,
+                transform:"translateY(50px)"
+            },
+
+            {
+                opacity:1,
+                transform:"translateY(0)"
+            }
+
+        ],{
+
+            duration:1000,
+            easing:"ease"
+
+        });
+
+});
+
+// ============================
+// QR Hover Glow
+// ============================
+
+const qr=document.querySelector(".qr");
+
+if(qr){
+
+qr.addEventListener("mouseenter",()=>{
+
+    qr.style.transform="scale(1.05)";
+    qr.style.boxShadow="0 0 40px cyan";
+
+});
+
+qr.addEventListener("mouseleave",()=>{
+
+    qr.style.transform="";
+    qr.style.boxShadow="";
+
+});
+
+}
+
+// ============================
+// Footer Year
+// ============================
+
+const year=document.getElementById("year");
+
+if(year){
+
+year.textContent=new Date().getFullYear();
+
+}
+
+// ============================
+// Console Message
+// ============================
+
+console.log("%cHiroshi Payment",
+"color:#00cfff;font-size:28px;font-weight:bold;");
+
+console.log("%cDeveloped with HTML CSS JavaScript",
+"color:white;font-size:14px;");
