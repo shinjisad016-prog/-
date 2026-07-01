@@ -1,23 +1,126 @@
-<button class="copy-btn" onclick="copyNumber('2091875880')">
-    📋 คัดลอกเลขบัญชี
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Hiroshi Payment</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<script src="script.js" defer></script>
+
+</head>
+
+<body>
+
+<div id="loader">
+
+<div class="loader-circle"></div>
+
+<h2>Loading...</h2>
+
+</div>
+
+<div id="stars"></div>
+
+<div id="particles"></div>
+
+<header>
+
+<h1>✨ ช่องทางชำระเงิน ✨</h1>
+
+<p>Thank you for supporting.</p>
+
+</header>
+
+<section class="main-card">
+
+<div class="left">
+
+<img src="assets/character.png" class="character">
+
+</div>
+
+<div class="right">
+
+<div class="glass">
+
+<h2>ชื่อบัญชี</h2>
+
+<p>ธีระพงษ์ กุดเหลา</p>
+
+</div>
+
+<div class="glass">
+
+<h2>ธนาคารกสิกรไทย</h2>
+
+<h1 id="bankNumber">
+
+209-1-87588-0
+
+</h1>
+
+<button onclick="copyBank()">
+
+คัดลอกเลขบัญชี
+
 </button>
 
-<script>
-function copyNumber(text){
-    navigator.clipboard.writeText(text);
+</div>
 
-    const toast=document.createElement("div");
-    toast.className="toast";
-    toast.innerHTML="✔ คัดลอกเลขบัญชีแล้ว";
+<div class="glass">
 
-    document.body.appendChild(toast);
+<h2>TrueMoney Wallet</h2>
 
-    setTimeout(()=>{
-        toast.classList.add("show");
-    },50);
+<h1 id="wallet">
 
-    setTimeout(()=>{
-        toast.remove();
-    },2500);
-}
-</script>
+061-490-9937
+
+</h1>
+
+<button onclick="copyWallet()">
+
+คัดลอกเบอร์วอลเล็ต
+
+</button>
+
+</div>
+
+<div class="glass">
+
+<img src="assets/qr.png" class="qr">
+
+<button onclick="downloadQR()">
+
+ดาวน์โหลด QR
+
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<p>
+
+ขอบคุณสำหรับการสนับสนุน 💙
+
+</p>
+
+</footer>
+
+<div id="toast"></div>
+
+</body>
+
+</html>
